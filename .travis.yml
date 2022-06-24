@@ -1,6 +1,9 @@
 language: java
 jdk:
   - openjdk17 # Java version
+  before_deploy:
+    - rvm install 3.0.4
+    - rvm --default use 3.0.4
 deploy:
   provider: heroku
   api_key:
