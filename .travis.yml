@@ -7,6 +7,6 @@ jdk:
 deploy:
   provider: heroku
   api_key: $HEROKU_TOKEN
-  app: "springboot-pedidos"
+  app: "pedidos-springboot"
 before_install:
   - chmod +x mvnw
