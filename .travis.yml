@@ -1,5 +1,10 @@
 language: java
 jdk:
   - openjdk17 # Java version
+deploy:
+  provider: heroku
+  api_key:
+    secure: $HEROKU_TOKEN
+  app: "springboot-pedidos"
 before_install:
   - chmod +x mvnw
