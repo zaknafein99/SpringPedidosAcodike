@@ -1,13 +1,12 @@
 language: java
 jdk:
   - openjdk17 # Java version
-  before_deploy:
-    - rvm install 3.0.4
-    - rvm --default use 3.0.4
+#  before_deploy:
+#    - rvm install 3.0.4
+#    - rvm --default use 3.0.4
 deploy:
   provider: heroku
-  api_key:
-    secure: $HEROKU_TOKEN
+  api_key: $HEROKU_TOKEN
   app: "springboot-pedidos"
 before_install:
   - chmod +x mvnw
