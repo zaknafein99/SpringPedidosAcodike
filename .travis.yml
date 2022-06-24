@@ -1,3 +1,5 @@
 language: java
 jdk:
   - openjdk17 # Java version
+before_install:
+  - chmod +x mvnw
