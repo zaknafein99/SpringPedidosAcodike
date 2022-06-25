@@ -6,6 +6,7 @@ import com.ismael.acodike.SpringPedidosAcodike.service.ClientService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ClientServiceImpl implements ClientService {
@@ -23,7 +24,7 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Client getById(Integer id) {
+    public Client getById(UUID id) {
         return repository.findById(id).orElse(null);
     }
 

@@ -6,41 +6,29 @@
 package com.ismael.acodike.SpringPedidosAcodike.domain;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 import org.hibernate.Hibernate;
 
-import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Objects;
+import java.util.UUID;
 
 /**
  *
  * @author Docente
  */
 
-@Getter
-@Setter
-@ToString
-@RequiredArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "cliente", catalog = "pedidos", schema = "")
 public class Client{
 
-
-    @Basic(optional = false)
-    @Column(name = "ID", nullable = false)
     @Id
-    private Integer id;
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
+    private UUID id;
     @Column(name = "apellidonombre", length = 255)
     private String apellidonombre;
     @Column(name = "DIRECCION", length = 255)
