@@ -11,4 +11,6 @@ public interface ClientService {
     List<ClientDTO> getAll();
     ClientDTO getById(Integer id);
     List<ClientDTO> getByTelephone(String telephone);
+
+    ClientDTO create(ClientDTO client);
 }

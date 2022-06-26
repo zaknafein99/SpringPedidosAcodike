@@ -25,23 +25,23 @@ import java.util.Objects;
 @Getter
 @Setter
 @Entity
-@Table(name = "cliente", catalog = "pedidos", schema = "")
+@Table(name = "cliente", catalog = "pedidos")
 public class Client{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "apellidonombre", length = 255)
+    @Column(name = "apellidonombre")
     private String apellidonombre;
-    @Column(name = "DIRECCION", length = 255)
+    @Column(name = "DIRECCION")
     private String direccion;
-    @Column(name = "TELEFONO", length = 255)
+    @Column(name = "TELEFONO")
     private String telefono;
-    @Column(name = "TIPOCLIENTE", length = 255)
+    @Column(name = "TIPOCLIENTE")
     private String tipocliente;
 //    @OneToMany(mappedBy = "idcliente")
 //    private Collection<Pedidos> pedidosCollection;
-    @Column(name = "ESTADO", length = 1)
+    @Column(name = "ESTADO")
     private char estado;
 
     @Override

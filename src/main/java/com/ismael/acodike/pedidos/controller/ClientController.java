@@ -5,6 +5,8 @@ import com.ismael.acodike.pedidos.service.ClientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -38,5 +40,10 @@ public class ClientController {
         return ResponseEntity.ok(client);
     }
 
+    @PostMapping(path = "/clientes", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<ClientDTO> createClient(@RequestBody ClientDTO client) {
+        ClientDTO newClient = service.create(client);
+        return ResponseEntity.ok(newClient);
+    }
 
 }
