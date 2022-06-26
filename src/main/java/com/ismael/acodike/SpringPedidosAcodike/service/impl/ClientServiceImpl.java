@@ -22,8 +22,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public List<ClientDTO> getAll() {
         List<ClientDTO> clientsDTO = new ArrayList<ClientDTO>();
-        List<Client> clients = new ArrayList<Client>();
-        clients = repository.findAll();
+        List<Client> clients = repository.findAll();
         for (Client client:clients){
             ClientDTO clientDTO = ClientDTO.builder()
                     .id(client.getId())
@@ -56,8 +55,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public List<ClientDTO> getByTelephone(String telephone) {
         List<ClientDTO> clientsDTO = new ArrayList<ClientDTO>();
-        List<Client> clients = new ArrayList<Client>();
-        clients = repository.findAllByTelefono(telephone);
+        List<Client> clients = repository.findAllByTelefono(telephone);
         for (Client client:clients){
             ClientDTO clientDTO = ClientDTO.builder()
                     .id(client.getId())
