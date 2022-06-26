@@ -1,6 +1,6 @@
 package com.ismael.acodike.pedidos.controller;
 
-import com.ismael.acodike.pedidos.DTO.ClientDTO;
+import com.ismael.acodike.pedidos.dto.ClientDTO;
 import com.ismael.acodike.pedidos.service.ClientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +14,10 @@ import java.util.List;
 @RestController
 public class ClientController {
 
-    private static ClientService service;
+    private final ClientService service;
 
     public ClientController(ClientService service) {
-        ClientController.service = service;
+        this.service = service;
     }
 
     @GetMapping("/clientes")

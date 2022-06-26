@@ -1,4 +1,4 @@
-package com.ismael.acodike.pedidos.DTO;
+package com.ismael.acodike.pedidos.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

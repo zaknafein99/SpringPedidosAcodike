@@ -1,6 +1,6 @@
 package com.ismael.acodike.pedidos.mapper;
 
-import com.ismael.acodike.pedidos.DTO.ItemDTO;
+import com.ismael.acodike.pedidos.dto.ItemDTO;
 import com.ismael.acodike.pedidos.domain.Item;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

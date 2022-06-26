@@ -1,6 +1,6 @@
 package com.ismael.acodike.pedidos.service.impl;
 
-import com.ismael.acodike.pedidos.DTO.ClientDTO;
+import com.ismael.acodike.pedidos.dto.ClientDTO;
 import com.ismael.acodike.pedidos.domain.Client;
 import com.ismael.acodike.pedidos.mapper.ClientMapper;
 import com.ismael.acodike.pedidos.repository.ClientRepository;
