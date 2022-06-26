@@ -4,6 +4,8 @@ import com.ismael.acodike.pedidos.dto.ItemDTO;
 import com.ismael.acodike.pedidos.service.ItemService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,6 +25,12 @@ public class ItemController {
     public ResponseEntity<List<ItemDTO>> getAllItems() {
         List<ItemDTO> items = service.getAll();
         return ResponseEntity.ok(items);
+    }
+
+    @PostMapping(path = "/items", consumes = "application/json", produces = "application/json")
+    public ResponseEntity<ItemDTO> createItem(@RequestBody ItemDTO item) {
+        ItemDTO newItem = service.create(item);
+        return ResponseEntity.ok(newItem);
     }
 
 }

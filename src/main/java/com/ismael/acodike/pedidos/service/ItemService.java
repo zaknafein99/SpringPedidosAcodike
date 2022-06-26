@@ -10,4 +10,5 @@ public interface ItemService {
 
     List<ItemDTO> getAll();
 
+    ItemDTO create(ItemDTO item);
 }
