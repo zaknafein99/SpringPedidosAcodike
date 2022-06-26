@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.ismael.acodike.SpringPedidosAcodike.domain;
+package com.ismael.acodike.pedidos.domain;
 
 
 import lombok.Getter;
@@ -17,7 +17,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Objects;
-import java.util.UUID;
 
 /**
  *

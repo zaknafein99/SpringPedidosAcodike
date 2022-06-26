@@ -1,8 +1,7 @@
-package com.ismael.acodike.SpringPedidosAcodike.controller;
+package com.ismael.acodike.pedidos.controller;
 
-import com.ismael.acodike.SpringPedidosAcodike.DTO.ClientDTO;
-import com.ismael.acodike.SpringPedidosAcodike.domain.Client;
-import com.ismael.acodike.SpringPedidosAcodike.service.ClientService;
+import com.ismael.acodike.pedidos.DTO.ClientDTO;
+import com.ismael.acodike.pedidos.service.ClientService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.UUID;
 
 @RequestMapping("/api/v1")
 @RestController

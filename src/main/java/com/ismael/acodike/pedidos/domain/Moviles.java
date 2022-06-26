@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.ismael.acodike.SpringPedidosAcodike.domain;
+package com.ismael.acodike.pedidos.domain;
 
 import javax.persistence.Table;
 

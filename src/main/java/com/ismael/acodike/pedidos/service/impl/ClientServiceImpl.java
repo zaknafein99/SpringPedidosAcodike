@@ -1,14 +1,13 @@
-package com.ismael.acodike.SpringPedidosAcodike.service.impl;
+package com.ismael.acodike.pedidos.service.impl;
 
-import com.ismael.acodike.SpringPedidosAcodike.DTO.ClientDTO;
-import com.ismael.acodike.SpringPedidosAcodike.domain.Client;
-import com.ismael.acodike.SpringPedidosAcodike.repository.ClientRepository;
-import com.ismael.acodike.SpringPedidosAcodike.service.ClientService;
+import com.ismael.acodike.pedidos.DTO.ClientDTO;
+import com.ismael.acodike.pedidos.domain.Client;
+import com.ismael.acodike.pedidos.repository.ClientRepository;
+import com.ismael.acodike.pedidos.service.ClientService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class ClientServiceImpl implements ClientService {
