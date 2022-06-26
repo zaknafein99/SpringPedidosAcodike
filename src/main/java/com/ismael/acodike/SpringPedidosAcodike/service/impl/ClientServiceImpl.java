@@ -25,12 +25,14 @@ public class ClientServiceImpl implements ClientService {
         List<Client> clients = new ArrayList<Client>();
         clients = repository.findAll();
         for (Client client:clients){
-            ClientDTO clientDTO = new ClientDTO();
-            clientDTO.setApellidonombre(client.getApellidonombre());
-            clientDTO.setDireccion(client.getDireccion());
-            clientDTO.setEstado(client.getEstado());
-            clientDTO.setTelefono(client.getTelefono());
-            clientDTO.setTipocliente(client.getTipocliente());
+            ClientDTO clientDTO = ClientDTO.builder()
+                    .id(client.getId())
+                    .apellidonombre(client.getApellidonombre())
+                    .direccion(client.getDireccion())
+                    .estado(client.getEstado())
+                    .telefono(client.getTelefono())
+                    .tipocliente(client.getTipocliente())
+                    .build();
 
             clientsDTO.add(clientDTO);
         }
@@ -40,14 +42,15 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public ClientDTO getById(Integer id) {
         Client client = repository.findById(id).orElse(null);
-        ClientDTO clientDTO = new ClientDTO();
-        clientDTO.setApellidonombre(client.getApellidonombre());
-        clientDTO.setDireccion(client.getDireccion());
-        clientDTO.setEstado(client.getEstado());
-        clientDTO.setTelefono(client.getTelefono());
-        clientDTO.setTipocliente(client.getTipocliente());
 
-        return clientDTO;
+        return ClientDTO.builder()
+                .id(client.getId())
+                .apellidonombre(client.getApellidonombre())
+                .direccion(client.getDireccion())
+                .estado(client.getEstado())
+                .telefono(client.getTelefono())
+                .tipocliente(client.getTipocliente())
+                .build();
     }
 
     @Override
@@ -56,12 +59,14 @@ public class ClientServiceImpl implements ClientService {
         List<Client> clients = new ArrayList<Client>();
         clients = repository.findAllByTelefono(telephone);
         for (Client client:clients){
-            ClientDTO clientDTO = new ClientDTO();
-            clientDTO.setApellidonombre(client.getApellidonombre());
-            clientDTO.setDireccion(client.getDireccion());
-            clientDTO.setEstado(client.getEstado());
-            clientDTO.setTelefono(client.getTelefono());
-            clientDTO.setTipocliente(client.getTipocliente());
+            ClientDTO clientDTO = ClientDTO.builder()
+                    .id(client.getId())
+                    .apellidonombre(client.getApellidonombre())
+                    .direccion(client.getDireccion())
+                    .estado(client.getEstado())
+                    .telefono(client.getTelefono())
+                    .tipocliente(client.getTipocliente())
+                            .build();
 
             clientsDTO.add(clientDTO);
         }
