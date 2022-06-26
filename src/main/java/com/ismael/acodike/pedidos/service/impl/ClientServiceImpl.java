@@ -2,6 +2,7 @@ package com.ismael.acodike.pedidos.service.impl;
 
 import com.ismael.acodike.pedidos.DTO.ClientDTO;
 import com.ismael.acodike.pedidos.domain.Client;
+import com.ismael.acodike.pedidos.mapper.ClientMapper;
 import com.ismael.acodike.pedidos.repository.ClientRepository;
 import com.ismael.acodike.pedidos.service.ClientService;
 import org.springframework.stereotype.Service;
@@ -20,19 +21,10 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public List<ClientDTO> getAll() {
-        List<ClientDTO> clientsDTO = new ArrayList<ClientDTO>();
+        List<ClientDTO> clientsDTO = new ArrayList<>();
         List<Client> clients = repository.findAll();
         for (Client client:clients){
-            ClientDTO clientDTO = ClientDTO.builder()
-                    .id(client.getId())
-                    .apellidonombre(client.getApellidonombre())
-                    .direccion(client.getDireccion())
-                    .estado(client.getEstado())
-                    .telefono(client.getTelefono())
-                    .tipocliente(client.getTipocliente())
-                    .build();
-
-            clientsDTO.add(clientDTO);
+            clientsDTO.add(ClientMapper.INSTANCE.clientToClientDTO(client));
         }
         return clientsDTO;
     }
@@ -41,31 +33,15 @@ public class ClientServiceImpl implements ClientService {
     public ClientDTO getById(Integer id) {
         Client client = repository.findById(id).orElse(null);
 
-        return ClientDTO.builder()
-                .id(client.getId())
-                .apellidonombre(client.getApellidonombre())
-                .direccion(client.getDireccion())
-                .estado(client.getEstado())
-                .telefono(client.getTelefono())
-                .tipocliente(client.getTipocliente())
-                .build();
-    }
+        return ClientMapper.INSTANCE.clientToClientDTO(client);
+        }
 
     @Override
     public List<ClientDTO> getByTelephone(String telephone) {
-        List<ClientDTO> clientsDTO = new ArrayList<ClientDTO>();
+        List<ClientDTO> clientsDTO = new ArrayList<>();
         List<Client> clients = repository.findAllByTelefono(telephone);
         for (Client client:clients){
-            ClientDTO clientDTO = ClientDTO.builder()
-                    .id(client.getId())
-                    .apellidonombre(client.getApellidonombre())
-                    .direccion(client.getDireccion())
-                    .estado(client.getEstado())
-                    .telefono(client.getTelefono())
-                    .tipocliente(client.getTipocliente())
-                            .build();
-
-            clientsDTO.add(clientDTO);
+            clientsDTO.add(ClientMapper.INSTANCE.clientToClientDTO(client));
         }
         return clientsDTO;
 
