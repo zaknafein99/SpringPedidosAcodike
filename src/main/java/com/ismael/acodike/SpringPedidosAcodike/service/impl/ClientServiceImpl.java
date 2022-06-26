@@ -1,10 +1,12 @@
 package com.ismael.acodike.SpringPedidosAcodike.service.impl;
 
+import com.ismael.acodike.SpringPedidosAcodike.DTO.ClientDTO;
 import com.ismael.acodike.SpringPedidosAcodike.domain.Client;
 import com.ismael.acodike.SpringPedidosAcodike.repository.ClientRepository;
 import com.ismael.acodike.SpringPedidosAcodike.service.ClientService;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -18,18 +20,52 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public List<Client> getAll() {
-        return (List<Client>)
-                repository.findAll();
+    public List<ClientDTO> getAll() {
+        List<ClientDTO> clientsDTO = new ArrayList<ClientDTO>();
+        List<Client> clients = new ArrayList<Client>();
+        clients = repository.findAll();
+        for (Client client:clients){
+            ClientDTO clientDTO = new ClientDTO();
+            clientDTO.setApellidonombre(client.getApellidonombre());
+            clientDTO.setDireccion(client.getDireccion());
+            clientDTO.setEstado(client.getEstado());
+            clientDTO.setTelefono(client.getTelefono());
+            clientDTO.setTipocliente(client.getTipocliente());
+
+            clientsDTO.add(clientDTO);
+        }
+        return clientsDTO;
     }
 
     @Override
-    public Client getById(UUID id) {
-        return repository.findById(id).orElse(null);
+    public ClientDTO getById(Integer id) {
+        Client client = repository.findById(id).orElse(null);
+        ClientDTO clientDTO = new ClientDTO();
+        clientDTO.setApellidonombre(client.getApellidonombre());
+        clientDTO.setDireccion(client.getDireccion());
+        clientDTO.setEstado(client.getEstado());
+        clientDTO.setTelefono(client.getTelefono());
+        clientDTO.setTipocliente(client.getTipocliente());
+
+        return clientDTO;
     }
 
     @Override
-    public List<Client> getByTelephone(String telephone) {
-        return repository.findAllByTelefono(telephone);
+    public List<ClientDTO> getByTelephone(String telephone) {
+        List<ClientDTO> clientsDTO = new ArrayList<ClientDTO>();
+        List<Client> clients = new ArrayList<Client>();
+        clients = repository.findAllByTelefono(telephone);
+        for (Client client:clients){
+            ClientDTO clientDTO = new ClientDTO();
+            clientDTO.setApellidonombre(client.getApellidonombre());
+            clientDTO.setDireccion(client.getDireccion());
+            clientDTO.setEstado(client.getEstado());
+            clientDTO.setTelefono(client.getTelefono());
+            clientDTO.setTipocliente(client.getTipocliente());
+
+            clientsDTO.add(clientDTO);
+        }
+        return clientsDTO;
+
     }
 }

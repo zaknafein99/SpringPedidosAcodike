@@ -1,5 +1,6 @@
 package com.ismael.acodike.SpringPedidosAcodike.controller;
 
+import com.ismael.acodike.SpringPedidosAcodike.DTO.ClientDTO;
 import com.ismael.acodike.SpringPedidosAcodike.domain.Client;
 import com.ismael.acodike.SpringPedidosAcodike.service.ClientService;
 import org.springframework.http.ResponseEntity;
@@ -22,20 +23,20 @@ public class ClientController {
     }
 
     @GetMapping("/clientes")
-    public ResponseEntity<List<Client>> getAllClients() {
-        List<Client> client = service.getAll();
+    public ResponseEntity<List<ClientDTO>> getAllClients() {
+        List<ClientDTO> client = service.getAll();
         return ResponseEntity.ok(client);
     }
 
     @GetMapping("/clientes/{id}")
-    public ResponseEntity<Client> getClienteById(@PathVariable UUID id) {
-        Client client = service.getById(id);
+    public ResponseEntity<ClientDTO> getClienteById(@PathVariable Integer id) {
+        ClientDTO client = service.getById(id);
         return ResponseEntity.ok(client);
     }
 
     @GetMapping("/clientes/telefono/{telefono}")
-    public ResponseEntity<List<Client>> getClienteByTelephone(@PathVariable String telefono) {
-        List<Client> client = service.getByTelephone(telefono);
+    public ResponseEntity<List<ClientDTO>> getClienteByTelephone(@PathVariable String telefono) {
+        List<ClientDTO> client = service.getByTelephone(telefono);
         return ResponseEntity.ok(client);
     }
 

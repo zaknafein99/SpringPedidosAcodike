@@ -6,6 +6,8 @@
 package com.ismael.acodike.SpringPedidosAcodike.domain;
 
 
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.Hibernate;
 
 import javax.persistence.Column;
@@ -21,14 +23,15 @@ import java.util.UUID;
  *
  * @author Docente
  */
-
+@Getter
+@Setter
 @Entity
 @Table(name = "cliente", catalog = "pedidos", schema = "")
 public class Client{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "UUID")
-    private UUID id;
+    private Integer id;
     @Column(name = "apellidonombre", length = 255)
     private String apellidonombre;
     @Column(name = "DIRECCION", length = 255)
