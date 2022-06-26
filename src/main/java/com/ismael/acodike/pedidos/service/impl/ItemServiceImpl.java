@@ -36,5 +36,11 @@ public class ItemServiceImpl implements ItemService {
         Item itemCreated = repository.save(ItemMapper.INSTANCE.itemDTOToItem(item));
         return ItemMapper.INSTANCE.itemToItemDTO(itemCreated);
     }
+
+    @Override
+    public ItemDTO getById(Integer id) {
+        Item item = repository.findById(id).orElse(null);
+        return ItemMapper.INSTANCE.itemToItemDTO(item);
+    }
 }
 

@@ -4,6 +4,7 @@ import com.ismael.acodike.pedidos.dto.ItemDTO;
 import com.ismael.acodike.pedidos.service.ItemService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,12 @@ public class ItemController {
     public ResponseEntity<List<ItemDTO>> getAllItems() {
         List<ItemDTO> items = service.getAll();
         return ResponseEntity.ok(items);
+    }
+
+    @GetMapping("/items/{id}")
+    public ResponseEntity<ItemDTO> getItemById(@PathVariable Integer id) {
+        ItemDTO item = service.getById(id);
+        return ResponseEntity.ok(item);
     }
 
     @PostMapping(path = "/items", consumes = "application/json", produces = "application/json")

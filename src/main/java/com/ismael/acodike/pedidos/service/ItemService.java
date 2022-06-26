@@ -11,4 +11,6 @@ public interface ItemService {
     List<ItemDTO> getAll();
 
     ItemDTO create(ItemDTO item);
+
+    ItemDTO getById(Integer id);
 }
