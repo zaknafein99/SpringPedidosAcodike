@@ -52,4 +52,10 @@ public class ClientServiceImpl implements ClientService {
         Client clientCreated = repository.save(ClientMapper.INSTANCE.clientDTOToClient(client));
         return ClientMapper.INSTANCE.clientToClientDTO(clientCreated);
     }
+
+    @Override
+    public Integer delete(Integer id) {
+        repository.deleteById(id);
+        return id;
+    }
 }

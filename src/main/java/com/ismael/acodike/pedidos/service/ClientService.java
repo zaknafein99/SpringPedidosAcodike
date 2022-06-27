@@ -13,4 +13,6 @@ public interface ClientService {
     List<ClientDTO> getByTelephone(String telephone);
 
     ClientDTO create(ClientDTO client);
+
+    Integer delete(Integer id);
 }
