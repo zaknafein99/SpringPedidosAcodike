@@ -42,5 +42,11 @@ public class ItemServiceImpl implements ItemService {
         Item item = repository.findById(id).orElse(null);
         return ItemMapper.INSTANCE.itemToItemDTO(item);
     }
+
+    @Override
+    public Integer delete(Integer id) {
+        repository.deleteById(id);
+        return id;
+    }
 }
 

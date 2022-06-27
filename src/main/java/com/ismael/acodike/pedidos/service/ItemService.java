@@ -13,4 +13,6 @@ public interface ItemService {
     ItemDTO create(ItemDTO item);
 
     ItemDTO getById(Integer id);
+
+    Integer delete(Integer id);
 }
