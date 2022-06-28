@@ -45,13 +45,13 @@ public class Pedidos{
 //    private Customer idcliente;
 //
 //    @JoinColumn(name = "id_movil", referencedColumnName = "nromovil")
-//    private Moviles idMovil;
+//    private Truck idMovil;
 //
 //    @JoinColumn(name = "id_movil2", referencedColumnName = "nromovil")
-//    private Moviles idMovil2;
+//    private Truck idMovil2;
 //
 //    @JoinColumn(name = "movilasignado", referencedColumnName = "nromovil")
-//    private Moviles movilAsignado;
+//    private Truck movilAsignado;
 //
 //    @Column(name = "ENTREGADO")
 //    private char entregado;
