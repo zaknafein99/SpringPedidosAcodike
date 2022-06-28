@@ -10,4 +10,10 @@ public interface TruckService {
 
     List<TruckDTO> getAll();
 
+    TruckDTO getById(Integer id);
+
+    TruckDTO create(TruckDTO truck);
+
+    TruckDTO delete(Integer id);
+
 }
