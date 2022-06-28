@@ -14,5 +14,5 @@ public interface ClientService {
 
     ClientDTO create(ClientDTO client);
 
-    Integer delete(Integer id);
+    ClientDTO delete(Integer id);
 }

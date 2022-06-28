@@ -84,13 +84,13 @@ public class ClientController {
             @ApiResponse(responseCode = "404", description = "The resource requested does not exist")
     })
     @DeleteMapping("/clientes/{id}")
-    public ResponseEntity<Integer> deleteClient(@PathVariable Integer id) {
-        Integer deleted = service.delete(id);
+    public ResponseEntity<ClientDTO> deleteClient(@PathVariable Integer id) {
+        ClientDTO deleted = service.delete(id);
 
-        if(deleted == 0) {
+        if(deleted == null) {
             return ResponseEntity.notFound().build();
         }else {
-            return new ResponseEntity<>(id, HttpStatus.OK);
+            return new ResponseEntity<>(deleted, HttpStatus.OK);
         }
     }
 

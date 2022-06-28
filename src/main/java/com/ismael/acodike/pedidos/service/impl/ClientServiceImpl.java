@@ -1,7 +1,7 @@
 package com.ismael.acodike.pedidos.service.impl;
 
-import com.ismael.acodike.pedidos.dto.ClientDTO;
 import com.ismael.acodike.pedidos.domain.Client;
+import com.ismael.acodike.pedidos.dto.ClientDTO;
 import com.ismael.acodike.pedidos.mapper.ClientMapper;
 import com.ismael.acodike.pedidos.repository.ClientRepository;
 import com.ismael.acodike.pedidos.service.ClientService;
@@ -54,8 +54,13 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public Integer delete(Integer id) {
-        repository.deleteById(id);
-        return id;
+    public ClientDTO delete(Integer id) {
+        Client client = repository.findById(id).orElse(null);
+        if(client != null){
+            repository.delete(client);
+            return ClientMapper.INSTANCE.clientToClientDTO(client);
+        }else {
+            return null;
+        }
     }
 }
