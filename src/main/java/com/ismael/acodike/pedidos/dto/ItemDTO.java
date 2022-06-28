@@ -16,6 +16,6 @@ public class ItemDTO {
     private Integer precio;
     private Integer kgs;
 //    @OneToMany(mappedBy = "idArticulo")
-//    private Collection<Pedidos> pedidosCollection;
+//    private Collection<Order> pedidosCollection;
 
 }

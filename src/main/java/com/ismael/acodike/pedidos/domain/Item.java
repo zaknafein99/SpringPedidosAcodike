@@ -24,16 +24,10 @@ public class Item {
     @Column(name = "codigo", nullable = false)
     @Id
     private Integer codigo;
-
-    @Column(name = "nombre", length = 65535)
+    @Column(name = "nombre")
     private String nombre;
     @Column(name = "precio")
     private Integer precio;
     @Column(name = "kgs")
     private Integer kgs;
-//    @OneToMany(mappedBy = "idArticulo")
-//    private Collection<Pedidos> pedidosCollection;
-
-
-
 }

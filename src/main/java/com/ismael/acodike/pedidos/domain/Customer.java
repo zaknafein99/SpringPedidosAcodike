@@ -40,7 +40,7 @@ public class Customer {
     @Column(name = "TIPOCLIENTE")
     private String tipocliente;
 //    @OneToMany(mappedBy = "idcliente")
-//    private Collection<Pedidos> pedidosCollection;
+//    private Collection<Order> pedidosCollection;
     @Column(name = "ESTADO")
     private char estado;
 

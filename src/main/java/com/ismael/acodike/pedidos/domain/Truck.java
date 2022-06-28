@@ -28,5 +28,5 @@ public class Truck {
     @Column(name = "observaciones")
     private String observations;
 //    @OneToMany(mappedBy = "idMovil")
-//    private Collection<Pedidos> pedidosCollection;
+//    private Collection<Order> pedidosCollection;
 }
