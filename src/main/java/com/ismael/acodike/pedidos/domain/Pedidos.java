@@ -42,7 +42,7 @@ public class Pedidos{
 //    private Articulos idArticulo;
 //
 //    @JoinColumn(name = "idcliente", referencedColumnName = "ID")
-//    private Client idcliente;
+//    private Customer idcliente;
 //
 //    @JoinColumn(name = "id_movil", referencedColumnName = "nromovil")
 //    private Moviles idMovil;

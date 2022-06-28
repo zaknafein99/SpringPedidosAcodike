@@ -1,6 +1,6 @@
 package com.ismael.acodike.pedidos.controller;
 
-import com.ismael.acodike.pedidos.dto.ClientDTO;
+import com.ismael.acodike.pedidos.dto.CustomerDTO;
 import com.ismael.acodike.pedidos.service.ClientService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Tag(name = "Client", description = "Operations about clients")
+@Tag(name = "Customer", description = "Operations about clients")
 @RequestMapping("/api/v1")
 @RestController
 public class ClientController {
@@ -36,8 +36,8 @@ public class ClientController {
             @ApiResponse(responseCode = "404", description = "The resource requested does not exist")
     })
     @GetMapping("/clientes")
-    public ResponseEntity<List<ClientDTO>> getAllClients() {
-        List<ClientDTO> client = service.getAll();
+    public ResponseEntity<List<CustomerDTO>> getAllClients() {
+        List<CustomerDTO> client = service.getAll();
         return ResponseEntity.ok(client);
     }
 
@@ -48,8 +48,8 @@ public class ClientController {
             @ApiResponse(responseCode = "404", description = "The resource requested does not exist")
     })
     @GetMapping("/clientes/{id}")
-    public ResponseEntity<ClientDTO> getClienteById(@PathVariable Integer id) {
-        ClientDTO client = service.getById(id);
+    public ResponseEntity<CustomerDTO> getClienteById(@PathVariable Integer id) {
+        CustomerDTO client = service.getById(id);
         return ResponseEntity.ok(client);
     }
 
@@ -60,8 +60,8 @@ public class ClientController {
             @ApiResponse(responseCode = "404", description = "The resource requested does not exist")
     })
     @GetMapping("/clientes/telefono/{telefono}")
-    public ResponseEntity<List<ClientDTO>> getClienteByTelephone(@PathVariable String telefono) {
-        List<ClientDTO> client = service.getByTelephone(telefono);
+    public ResponseEntity<List<CustomerDTO>> getClienteByTelephone(@PathVariable String telefono) {
+        List<CustomerDTO> client = service.getByTelephone(telefono);
         return ResponseEntity.ok(client);
     }
 
@@ -72,8 +72,8 @@ public class ClientController {
             @ApiResponse(responseCode = "404", description = "The resource requested does not exist")
     })
     @PostMapping(path = "/clientes", consumes = "application/json", produces = "application/json")
-    public ResponseEntity<ClientDTO> createClient(@RequestBody ClientDTO client) {
-        ClientDTO newClient = service.create(client);
+    public ResponseEntity<CustomerDTO> createClient(@RequestBody CustomerDTO client) {
+        CustomerDTO newClient = service.create(client);
         return ResponseEntity.ok(newClient);
     }
 
@@ -84,8 +84,8 @@ public class ClientController {
             @ApiResponse(responseCode = "404", description = "The resource requested does not exist")
     })
     @DeleteMapping("/clientes/{id}")
-    public ResponseEntity<ClientDTO> deleteClient(@PathVariable Integer id) {
-        ClientDTO deleted = service.delete(id);
+    public ResponseEntity<CustomerDTO> deleteClient(@PathVariable Integer id) {
+        CustomerDTO deleted = service.delete(id);
 
         if(deleted == null) {
             return ResponseEntity.notFound().build();

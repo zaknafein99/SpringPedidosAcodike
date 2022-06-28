@@ -1,6 +1,6 @@
 package com.ismael.acodike.pedidos.service;
 
-import com.ismael.acodike.pedidos.dto.ClientDTO;
+import com.ismael.acodike.pedidos.dto.CustomerDTO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -8,11 +8,11 @@ import java.util.List;
 @Service
 public interface ClientService {
 
-    List<ClientDTO> getAll();
-    ClientDTO getById(Integer id);
-    List<ClientDTO> getByTelephone(String telephone);
+    List<CustomerDTO> getAll();
+    CustomerDTO getById(Integer id);
+    List<CustomerDTO> getByTelephone(String telephone);
 
-    ClientDTO create(ClientDTO client);
+    CustomerDTO create(CustomerDTO client);
 
-    ClientDTO delete(Integer id);
+    CustomerDTO delete(Integer id);
 }

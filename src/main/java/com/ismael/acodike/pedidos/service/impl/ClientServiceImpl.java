@@ -1,8 +1,8 @@
 package com.ismael.acodike.pedidos.service.impl;
 
-import com.ismael.acodike.pedidos.domain.Client;
-import com.ismael.acodike.pedidos.dto.ClientDTO;
-import com.ismael.acodike.pedidos.mapper.ClientMapper;
+import com.ismael.acodike.pedidos.domain.Customer;
+import com.ismael.acodike.pedidos.dto.CustomerDTO;
+import com.ismael.acodike.pedidos.mapper.CustomerMapper;
 import com.ismael.acodike.pedidos.repository.ClientRepository;
 import com.ismael.acodike.pedidos.service.ClientService;
 import org.springframework.stereotype.Service;
@@ -20,45 +20,45 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public List<ClientDTO> getAll() {
-        List<ClientDTO> clientsDTO = new ArrayList<>();
-        List<Client> clients = repository.findAll();
-        for (Client client:clients){
-            clientsDTO.add(ClientMapper.INSTANCE.clientToClientDTO(client));
+    public List<CustomerDTO> getAll() {
+        List<CustomerDTO> clientsDTO = new ArrayList<>();
+        List<Customer> customers = repository.findAll();
+        for (Customer customer : customers){
+            clientsDTO.add(CustomerMapper.INSTANCE.customerToCustomerDTO(customer));
         }
         return clientsDTO;
     }
 
     @Override
-    public ClientDTO getById(Integer id) {
-        Client client = repository.findById(id).orElse(null);
+    public CustomerDTO getById(Integer id) {
+        Customer customer = repository.findById(id).orElse(null);
 
-        return ClientMapper.INSTANCE.clientToClientDTO(client);
+        return CustomerMapper.INSTANCE.customerToCustomerDTO(customer);
         }
 
     @Override
-    public List<ClientDTO> getByTelephone(String telephone) {
-        List<ClientDTO> clientsDTO = new ArrayList<>();
-        List<Client> clients = repository.findAllByTelefono(telephone);
-        for (Client client:clients){
-            clientsDTO.add(ClientMapper.INSTANCE.clientToClientDTO(client));
+    public List<CustomerDTO> getByTelephone(String telephone) {
+        List<CustomerDTO> clientsDTO = new ArrayList<>();
+        List<Customer> customers = repository.findAllByTelefono(telephone);
+        for (Customer customer : customers){
+            clientsDTO.add(CustomerMapper.INSTANCE.customerToCustomerDTO(customer));
         }
         return clientsDTO;
 
     }
 
     @Override
-    public ClientDTO create(ClientDTO client) {
-        Client clientCreated = repository.save(ClientMapper.INSTANCE.clientDTOToClient(client));
-        return ClientMapper.INSTANCE.clientToClientDTO(clientCreated);
+    public CustomerDTO create(CustomerDTO client) {
+        Customer customerCreated = repository.save(CustomerMapper.INSTANCE.customerDTOToCustomer(client));
+        return CustomerMapper.INSTANCE.customerToCustomerDTO(customerCreated);
     }
 
     @Override
-    public ClientDTO delete(Integer id) {
-        Client client = repository.findById(id).orElse(null);
-        if(client != null){
-            repository.delete(client);
-            return ClientMapper.INSTANCE.clientToClientDTO(client);
+    public CustomerDTO delete(Integer id) {
+        Customer customer = repository.findById(id).orElse(null);
+        if(customer != null){
+            repository.delete(customer);
+            return CustomerMapper.INSTANCE.customerToCustomerDTO(customer);
         }else {
             return null;
         }
