@@ -14,5 +14,5 @@ public interface ItemService {
 
     ItemDTO getById(Integer id);
 
-    Integer delete(Integer id);
+    ItemDTO delete(Integer id);
 }

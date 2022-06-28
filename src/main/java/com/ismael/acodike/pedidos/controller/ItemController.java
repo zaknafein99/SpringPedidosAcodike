@@ -72,14 +72,14 @@ public class ItemController {
             @ApiResponse(responseCode = "404", description = "The resource requested does not exist")
     })
     @DeleteMapping("/items/{id}")
-    public ResponseEntity<Integer> deleteItem(@PathVariable Integer id) {
+    public ResponseEntity<ItemDTO> deleteItem(@PathVariable Integer id) {
 
-        Integer deleted = service.delete(id);
+        ItemDTO deleted = service.delete(id);
 
-        if(deleted == 0) {
+        if(deleted == null) {
             return ResponseEntity.notFound().build();
         }else {
-            return new ResponseEntity<>(id, HttpStatus.OK);
+            return new ResponseEntity<>(deleted, HttpStatus.OK);
         }
     }
 
