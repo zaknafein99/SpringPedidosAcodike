@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 @Tag(name = "Customer", description = "Operations about Customers")
 @RequestMapping("/api/v1")
 @RestController
@@ -59,9 +60,9 @@ public class CustomerController {
             @ApiResponse(responseCode = "403", description = "Access to the resource requested is forbidden"),
             @ApiResponse(responseCode = "404", description = "The resource requested does not exist")
     })
-    @GetMapping("/customers/telefono/{telefono}")
-    public ResponseEntity<List<CustomerDTO>> getCustomerByTelephone(@PathVariable String telefono) {
-        List<CustomerDTO> customer = service.getByTelephone(telefono);
+    @GetMapping("/customers/phone/{phone}")
+    public ResponseEntity<List<CustomerDTO>> getCustomerByTelephone(@PathVariable String phone) {
+        List<CustomerDTO> customer = service.getByTelephone(phone);
         return ResponseEntity.ok(customer);
     }
 
